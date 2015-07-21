@@ -85,6 +85,21 @@ source $ZSH/oh-my-zsh.sh
 ## bwlv ALIASES
 alias v='vim'
 alias cpwd="pwd | tr -d '\n' | pbcopy"
+alias cdrive="cd /cygdrive/c/"
+alias docs="cd /cygdrive/c/Users/bwlv/Documents/"
+alias dev="cd /cygdrive/c/Users/bwlv/Documents/Dev/"
+alias notes="cd /cygdrive/c/Users/bwlv/Documents/Notes/"
+alias disco="cd /cygdrive/c/Users/bwlv/Documents/Work/Disco/"
+#alias prettypath="echo $PATH | tr -s ':' '\n'"
+#alias ppath="sed 's/:/\n/g' <<<$PATH"
+
+#function path(){
+#    old=$IFS
+#    IFS=:
+#    printf "%s\n" $PATH
+#    IFS=$old
+#}
+
 
 
 # Interactive operation...
