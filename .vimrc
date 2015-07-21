@@ -8,6 +8,8 @@ call vundle#begin(path)
 Plugin 'gmarik/Vundle.vim'
 
 Plugin 'bling/vim-airline'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 filetype plugin indent on
