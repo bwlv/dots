@@ -46,9 +46,11 @@ ZSH_THEME="bwlv"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git iwhois man)
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -76,8 +78,9 @@ alias dev="cd /cygdrive/c/Users/bwlv/Documents/Dev/"
 alias notes="cd /cygdrive/c/Users/bwlv/Documents/Notes/"
 alias disco="cd /cygdrive/c/Users/bwlv/Documents/Work/Disco/"
 alias ppath='print -l $path'
-
-
+alias ducks='du -x --max-depth=1 | sort -n'
+#
+#
 # Interactive operation...
 alias rm='rm -i'
 alias cp='cp -i'
@@ -102,9 +105,12 @@ alias vdir='ls --color=auto --format=long'
 alias ll='ls -la --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF' 
-
-
+#
+#
 # Moving around
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+#
+#
+

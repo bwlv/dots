@@ -60,7 +60,6 @@ set wildmenu
 set fileencodings=ucs-bom,utf-8,default,latin1
 set helplang=en
 set history=1000
-set autoindent
 set shiftwidth=4
 set autoindent
 set smartindent
@@ -102,4 +101,7 @@ inoremap jj <Esc>
 
 nnoremap <leader>w <C-w>v<C-w>l
 
+"map <C-l> :tabn<CR>
+"map <C-h> :tabp<CR>
+"map <C-n> :tabnew<CR>
 

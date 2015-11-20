@@ -9,11 +9,11 @@
 # shopt -s nocaseglob
 #
 # Make bash append rather than overwrite the history on disk
-shopt -s histappend
+##shopt -s histappend
 
 # When changing directory small typos can be ignored by bash
 # for example, cd /vr/lgo/apaache would find /var/log/apache
-shopt -s cdspell
+##shopt -s cdspell
 
 # Completion options
 #
@@ -165,3 +165,6 @@ alias l='ls -CF'
 # }
 # 
 # alias cd=cd_func
+
+export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH
+
