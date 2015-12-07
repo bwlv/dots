@@ -99,7 +99,9 @@ alias egrep='egrep --color=auto'              # show differences in colour
 alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Shortcuts for directory listings
-alias ls='ls -ahF --color=tty'
+#alias ls='ls -ahF --color=tty'
+#alias ls='ls --color=tty'
+alias ls='ls --color=auto'
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
 alias ll='ls -la --color=auto'

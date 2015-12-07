@@ -3,6 +3,9 @@ set nocompatible
 filetype off
 set rtp+=~/vimfiles/bundle/Vundle.vim/
 let path='~/vimfiles/bundle'
+" set rtp+=~/.vim/bundle/Vundle.vim/"
+" let path='~/.vim/bundle'"
+
 call vundle#begin(path)
 
 Plugin 'gmarik/Vundle.vim'
