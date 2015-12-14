@@ -1,21 +1,25 @@
 " ~/.vimrc"
 set nocompatible
 filetype off
-set rtp+=~/vimfiles/bundle/Vundle.vim/
-let path='~/vimfiles/bundle'
-" set rtp+=~/.vim/bundle/Vundle.vim/"
-" let path='~/.vim/bundle'"
 
-call vundle#begin(path)
+set rtp+=~/vimfiles/bundle/Vundle.vim
 
-Plugin 'gmarik/Vundle.vim'
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'bling/vim-airline'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
+Plugin 'plasticboy/vim-markdown'
 
 call vundle#end()
 filetype plugin indent on
+
+set encoding=utf-8
+set t_Co=256
+
+let g:airline_powerline_fonts = 1
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -70,6 +74,9 @@ set smarttab
 set expandtab
 set tabstop=4
 
+let mapleader=","
+let g:mapleader=","
+
 set hlsearch
 set incsearch
 set ignorecase
@@ -91,11 +98,14 @@ set magic
 colorscheme torte
 set background=dark
 
+if &t_Co > 2 || has("gui_running")
+  syntax on
+  set hlsearch
+endif
+
+
 noremap <S-space> <C-b>
 noremap <space> <C-f>
-
-let mapleader=","
-let g:mapleader=","
 
 nnoremap <leader>qa :qa<CR>
 nnoremap <leader>q :q!<CR>
@@ -107,4 +117,14 @@ nnoremap <leader>w <C-w>v<C-w>l
 "map <C-l> :tabn<CR>
 "map <C-h> :tabp<CR>
 "map <C-n> :tabnew<CR>
+
+" open NERDTree
+map <C-n> :NERDTreeToggle<CR>
+
+nmap <leader>nt :NERDTreeToggle<CR>
+
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
