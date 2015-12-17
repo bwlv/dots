@@ -60,9 +60,10 @@
 # \rm will call the real rm not the alias.
 #
 # Interactive operation...
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+#B5#alias rm='rm -i'
+#B5#alias cp='cp -i'
+#B5#alias mv='mv -i'
+#
 #
 # Default to human readable figures
 alias df='df -h'
@@ -76,12 +77,12 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 #
 # Some shortcuts for different directory listings
-alias ls='ls -hF --color=tty'
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
+#B5#alias ls='ls -hF --color=tty'
+#B5#alias dir='ls --color=auto --format=vertical'
+#B5#alias vdir='ls --color=auto --format=long'
+#B5#alias ll='ls -l'
+#B5#alias la='ls -A'
+#B5#alias l='ls -CF'
 
 # Umask
 #
@@ -166,5 +167,16 @@ alias l='ls -CF'
 # 
 # alias cd=cd_func
 
-export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH
+#B5#export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH
+
+
+
+# Less Colors for Man Pages
+export LESS_TERMCAP_mb=$'\E[01;31m'        # begin blinking
+export LESS_TERMCAP_md=$'\E[00;34m'        # begin bold
+export LESS_TERMCAP_me=$'\E[0m'            # end mode
+export LESS_TERMCAP_se=$'\E[0m'            # end standout-mode
+export LESS_TERMCAP_so=$'\E[01;44;33m'     # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m'            # end underline
+export LESS_TERMCAP_us=$'\E[00;32m'        # begin underline
 

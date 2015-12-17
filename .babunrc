@@ -30,5 +30,9 @@ export LC_ALL="en_US.UTF-8"
 # Uncomment and increase the timeout period if you get errors/timeouts on babun check
 # export CHECK_TIMEOUT_IN_SECS=4
 
-# Uncomment to enable bloda detection
-# export CYGWIN="nodosfilewarning mintty detect_bloda"
+# Uncomment to enable BLODA detection
+#B5# # export CYGWIN="nodosfilewarning mintty detect_bloda"
+#B5# export CYGWIN="nodosfilewarning mintty"
+export CYGWIN="nodosfilewarning mintty detect_bloda"
+export CYGWIN="nodosfilewarning mintty"
+
