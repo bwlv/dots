@@ -1,0 +1,17 @@
+AllowBlinking=yes
+BoldAsFont=no
+Font=Sauce Code Powerline
+FontHeight=11
+BackgroundColour=0,0,0
+ForegroundColour=255,255,255
+FontSmoothing=full
+ClickTargetMod=alt
+ClipShortcuts=no
+CopyOnSelect=no
+CtrlShiftShortcuts=yes
+CursorType=block
+RightClickAction=menu
+Scrollbar=none
+Columns=110
+Rows=36
+BoldAsColour=yes

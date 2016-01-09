@@ -1,10 +1,14 @@
+# ~/.zshrc
+
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
 # export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
 #B5#export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
 #B5#export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
-export LSCOLORS='exfxcxdxbxegedabagacad'
+export CLICOLOR=1
+export LSCOLORS="gxfxcxdxbxegedabagacad"
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -13,7 +17,7 @@ export LSCOLORS='exfxcxdxbxegedabagacad'
 ZSH_THEME="bwlv"
 
 # Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Uncomment the following line to disable colors in ls.
 # DISABLE_LS_COLORS="true"
@@ -28,7 +32,7 @@ ZSH_THEME="bwlv"
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
 # much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -37,11 +41,12 @@ ZSH_THEME="bwlv"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(colored-man-pages)
+
+plugins=()
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# export MANPATH="/usr/local/man:$MANPATH"
+export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -55,9 +60,15 @@ source $ZSH/oh-my-zsh.sh
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export EDITOR='vim'
+
+
 #B5# export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
-export EDITOR='vim'
+export MANPAGER='less -r'
+export LESS='-R'
+#B5# alias less='less -r'
+#B5# alias less='less -r --color=auto'
 
 ## B5 ALIASES
 alias v='vim'
@@ -71,39 +82,42 @@ alias disco="cd /cygdrive/c/Users/bwlv/Documents/Work/Disco/"
 alias paths='print -l $path'
 alias ducks='du -x --max-depth=1 | sort -n'
 alias df='df -h'
-alias du='du -h'
-#
-#
+alias du='du -h -c'
+
+
 ##alias rm='rm -i'
 ##alias cp='cp -i'
 ##alias mv='mv -i'
-#
-#
-## Misc
-alias less='less -r --color=auto'                  # raw control characters
 
+
+## Misc
 alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
-alias egrep='egrep --color=auto'              # show differences in colour
-alias fgrep='fgrep --color=auto'              # show differences in colour
-#
+alias grep='grep --color'                     # show differences in color
+alias egrep='egrep --color=auto'              # show differences in color
+alias fgrep='fgrep --color=auto'              # show differences in color
+
 ## Shortcuts for directory listings
-alias ls='ls -hF --color=tty'
+alias ls='ls -GphF --color=tty'
 alias dir='ls --color=auto --format=vertical'
 alias vdir='ls --color=auto --format=long'
-#B5#alias ll='ls -la --color=auto'
-alias ll='ls -la'
-#B5#alias la='ls -A --color=auto'
-alias la='ls -A'
+alias ll='ls -lFa --color=auto'
+alias la='ls -AF --color=auto'
 alias l='ls -CF' 
-#
-#
+
+
 # Moving around
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
-#
-#
+
+
+## Anaconda
+alias wo="activate"
+alias deac="deactivate"
+alias lsenvs="conda info -e"
+alias rmenv="conda remove --all -n"
+alias mkenv="conda create -n"
+
 
 ## Anaconda
 # include Anaconda in my PATH
@@ -112,12 +126,27 @@ alias addAna='export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH'
 
 
 # Less Colors for Man Pages
-#export LESS_TERMCAP_mb=$'\E[01;31m'        # begin blinking
-#export LESS_TERMCAP_md=$'\E[00;34m'        # begin bold
-#export LESS_TERMCAP_me=$'\E[0m'            # end mode
-#export LESS_TERMCAP_se=$'\E[0m'            # end standout-mode
-#export LESS_TERMCAP_so=$'\E[01;44;33m'     # begin standout-mode - info box
-#export LESS_TERMCAP_ue=$'\E[0m'            # end underline
-#export LESS_TERMCAP_us=$'\E[00;32m'        # begin underline
+man() {
+    env \
+        LESS_TERMCAP_mb=$(printf "\e[01;31m") \
+        LESS_TERMCAP_md=$(printf "\e[00;38;5;74m") \
+        LESS_TERMCAP_me=$(printf "\e[0m") \
+        LESS_TERMCAP_se=$(printf "\e[0m") \
+        LESS_TERMCAP_so=$(printf "\e[38;5;246m") \
+        LESS_TERMCAP_ue=$(printf "\e[0m") \
+        LESS_TERMCAP_us=$(printf "\e[04;38;5;146m") \
+        PAGER="${commands[less]:-$PAGER}" \
+        _NROFF_U=1 \
+        PATH="$HOME/bin:$PATH" \
+                man "$@"
+}
 
+
+#B5# export LESS_TERMCAP_mb=$'\E[01;31m'        # begin blinking
+#B5# export LESS_TERMCAP_md=$'\E[00;34m'        # begin bold
+#B5# export LESS_TERMCAP_me=$'\E[0m'            # end mode
+#B5# export LESS_TERMCAP_se=$'\E[0m'            # end standout-mode
+#B5# export LESS_TERMCAP_so=$'\E[01;44;33m'     # begin standout-mode - info box
+#B5# export LESS_TERMCAP_ue=$'\E[0m'            # end underline
+#B5# export LESS_TERMCAP_us=$'\E[00;32m'        # begin underline
 
