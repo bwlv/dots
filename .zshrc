@@ -6,7 +6,6 @@ export ZSH=$HOME/.oh-my-zsh
 
 # export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
 #B5#export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
-#B5#export LSCOLORS='gxBxhxDxfxhxhxhxhxcxcx'
 export CLICOLOR=1
 export LSCOLORS="gxfxcxdxbxegedabagacad"
 
@@ -16,61 +15,42 @@ export LSCOLORS="gxfxcxdxbxegedabagacad"
 # time that oh-my-zsh is loaded.
 ZSH_THEME="bwlv"
 
-# Uncomment the following line to use case-sensitive completion.
-CASE_SENSITIVE="true"
-
-# Uncomment the following line to disable colors in ls.
-# DISABLE_LS_COLORS="true"
-#B5#LSCOLORS=1
-
 # Uncomment the following line to enable command auto-correction.
 #ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
 # COMPLETION_WAITING_DOTS="true"
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
 DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-
 plugins=()
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# include Anaconda in my PATH
+alias addAna='export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH'
+
 export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
 export EDITOR='vim'
 
-
-#B5# export LESS='--ignore-case --raw-control-chars'
 export PAGER='less'
 export MANPAGER='less -r'
 export LESS='-R'
 #B5# alias less='less -r'
 #B5# alias less='less -r --color=auto'
+#B5# export LESS='--ignore-case --raw-control-chars'
 
-## B5 ALIASES
+##  B5 ALIASES  ##
 alias v='vim'
 alias vm='vim'
 alias cpwd="pwd | tr -d '\n' | pbcopy"
@@ -90,28 +70,27 @@ alias du='du -h -c'
 ##alias mv='mv -i'
 
 
-## Misc
+##  Misc  ##
 alias whence='type -a'                        # where, of a sort
 alias grep='grep --color'                     # show differences in color
 alias egrep='egrep --color=auto'              # show differences in color
 alias fgrep='fgrep --color=auto'              # show differences in color
 
-## Shortcuts for directory listings
+##  Looking around  ##
 alias ls='ls -GphF --color=tty'
-alias dir='ls --color=auto --format=vertical'
-alias vdir='ls --color=auto --format=long'
 alias ll='ls -lFa --color=auto'
 alias la='ls -AF --color=auto'
 alias l='ls -CF' 
+alias dir='ls --color=auto --format=vertical'
+alias vdir='ls --color=auto --format=long'
 
-
-# Moving around
+##  Getting around  ##
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 
 
-## Anaconda
+##  Anaconda  ##
 alias wo="activate"
 alias deac="deactivate"
 alias lsenvs="conda info -e"
@@ -119,13 +98,7 @@ alias rmenv="conda remove --all -n"
 alias mkenv="conda create -n"
 
 
-## Anaconda
-# include Anaconda in my PATH
-alias addAna='export PATH=/cygdrive/c/Users/bwlv/Anaconda3:$PATH'
-
-
-
-# Less Colors for Man Pages
+##  Less Colors for Man Pages  ##
 man() {
     env \
         LESS_TERMCAP_mb=$(printf "\e[01;31m") \
